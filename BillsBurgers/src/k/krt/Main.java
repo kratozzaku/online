@@ -4,20 +4,32 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		Ingredient tomatoes = new Ingredient("tomatoes");
-		Ingredient other = new Ingredient("other");
+		Ingredients tomatoes = new Ingredients("Tomatoes");
+		Ingredients cheese = new Ingredients("Cheese");
+		Ingredients fries = new Ingredients("Fries");
 				
-		Hamburger firstHamburger = new Hamburger("Bread", "Chicken", 20.0);
-		
-		
-		firstHamburger.addIngredient(tomatoes);
-		firstHamburger.addIngredient(other);
+		Hamburger firstHamburger = new Hamburger("White bread", "Chicken",20.00);
+		HealthyBurger healthyBurger = new HealthyBurger("Beef",25.00);
 		
 		firstHamburger.addIngredient(tomatoes);
-		firstHamburger.addIngredient(other);
+		firstHamburger.addIngredient(cheese);
 		firstHamburger.addIngredient(tomatoes);
+		firstHamburger.addIngredient(fries);
+		firstHamburger.addIngredient(tomatoes);
+		
+		healthyBurger.addIngredient(tomatoes);
+		healthyBurger.addIngredient(cheese);
+		healthyBurger.addIngredient(tomatoes);
+		healthyBurger.addIngredient(fries);
+		healthyBurger.addIngredient(tomatoes);
+		healthyBurger.addIngredient(fries);
+		healthyBurger.addIngredient(fries);
+		healthyBurger.addIngredient(fries);
+		
 		
 		firstHamburger.displaySummary();
+		healthyBurger.displaySummary();
+		
 		
 
 	}

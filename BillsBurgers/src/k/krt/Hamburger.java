@@ -2,77 +2,79 @@ package k.krt;
 
 import java.util.ArrayList;
 
+// Base class for Hamburger subclasses:
+
+
 public class Hamburger {
 	private String rollType;
 	private String meatType;
-	private double price;
-	private int maxIngredients;
-	private ArrayList<Ingredient> ingredients;
-	private int ingredientsCounter;
-	private double priceOfIngredients;
-	private double totalPrice;
+	protected ArrayList<Ingredients> ingredients = new ArrayList<Ingredients>();
 	
-	
-	// up to four additions
-	// should have additional additions - separate class
-	// use method to add these
-	
+	// Defaults
+	private double price = 20;
+	private int maxIngredients = 4;
+	protected int ingredientsCounter = 0;
+	protected double priceOfIngredients = 0;
+		
+
 	public Hamburger(String rollType, String meat, double price) {
 		this.rollType = rollType;
 		this.meatType = meat;
 		this.price = price;
-		this.maxIngredients = 4;
-		this.ingredients = new ArrayList<Ingredient>();
-		this.ingredientsCounter = 0;
-		this.priceOfIngredients = 0;
-		this.totalPrice = price;
 	}
 	
+	// Testing
+	public void setPrice(double price) {
+		this.price = price;		
+	}
+	// End testing
 	
-	public void addIngredient (Ingredient ingredient){
+	// Adds new ingredient to the ingredient list
+	public void addIngredient (Ingredients ingredient){
 		
-		if (ingredientsCounter < 4 ){
+		if (ingredientsCounter < this.maxIngredients ){
 			
-			// Add ingredient to ingredients string
-			ingredients.add(ingredient);
-			System.out.println("Added ingredient: " + this.ingredients.get(this.ingredients.indexOf(ingredient)).getName());
+			
+			ingredients.add(ingredient); // add ingredient
+			System.out.println("Add \"" + this.ingredients.get(this.ingredients.indexOf(ingredient)).getName() + "\" to " + this.getClass().getSimpleName());
 			ingredientsCounter++;
 			
-			// Calculate priceOfIngredients and totalPrice
+			// Get ingredient price
 			this.priceOfIngredients += this.ingredients.get(this.ingredients.indexOf(ingredient)).getPrice();
-			this.totalPrice += this.ingredients.get(this.ingredients.indexOf(ingredient)).getPrice();
+			
 
 		}
 		else{
-			System.out.println("Can not add more ingredients.");
+			System.out.println("Can not add more than " + this.maxIngredients + " ingredients to " + this.getClass().getSimpleName());
 		}
-				
-		// DONE check that max ingredients are not met
-		// DONE calculate new price
-		// DONE increase ingredientsCounter
+
 				
 	}
-	
+
+	// Display order summary
 	public void displaySummary(){
 		
-		System.out.println("*************************************************");
+		System.out.println("\n*************************************************");
 		System.out.println("****************** YOUR ORDER *******************");
-		System.out.println(this.getClass().getSimpleName() +": " + this.price);
+		
+		System.out.println(this.getClass().getSimpleName() +": $" + this.price);
 		System.out.println("- Roll Type: " + this.rollType);
 		System.out.println("- Meat Type: " + meatType);
 		
 		if (!ingredients.isEmpty()){
-			System.out.println("\nOther ingredients: ");
+			System.out.println("---------------------");
+			System.out.println("Other ingredients: \n");
 			
-			for (Ingredient ingredient : ingredients) {
+			
+			for (Ingredients ingredient : ingredients) {
 				System.out.print(ingredients.get(this.ingredients.indexOf(ingredient)).getName());
-				System.out.println(": " + ingredients.get(this.ingredients.indexOf(ingredient)).getPrice());
+				System.out.println(": $" + ingredients.get(this.ingredients.indexOf(ingredient)).getPrice());
 			}
 		}
-		
-		System.out.println("Ingredients total: " + this.priceOfIngredients + "\n");
 		System.out.println("---------------------");
-		System.out.println("*** Total: " + totalPrice +" ***");
+		System.out.println("Ingredients total: $" + this.priceOfIngredients);
+		System.out.println("\n*** Grand Total: $" + (this.price + this.priceOfIngredients) +" ***");
+		
 		
 	}
 	
@@ -95,7 +97,7 @@ public class Hamburger {
 	}
 
 
-	public ArrayList<Ingredient> getIngredients() {
+	public ArrayList<Ingredients> getIngredients() {
 		return ingredients;
 	}
 
