@@ -2,41 +2,44 @@ package k.krt;
 
 import java.util.ArrayList;
 
+
 // Base class for Hamburger subclasses:
 
 
 public class Hamburger {
+	
+	private String name;
 	private String rollType;
 	private String meatType;
-	protected ArrayList<Ingredients> ingredients = new ArrayList<Ingredients>();
+	private ArrayList<Ingredients> ingredients = new ArrayList<Ingredients>();
+	private double price;
 	
 	// Defaults
-	private double price = 20;
 	private int maxIngredients = 4;
-	protected int ingredientsCounter = 0;
-	protected double priceOfIngredients = 0;
+	private int ingredientsCounter = 0;
+	private double priceOfIngredients = 0;
 		
 
-	public Hamburger(String rollType, String meat, double price) {
+	public Hamburger(String name, String rollType, String meat, double price) {
+		this.name = name;
 		this.rollType = rollType;
 		this.meatType = meat;
 		this.price = price;
 	}
 	
-	// Testing
-	public void setPrice(double price) {
-		this.price = price;		
-	}
-	// End testing
 	
 	// Adds new ingredient to the ingredient list
+	
 	public void addIngredient (Ingredients ingredient){
+		if (this.name == "Healthy Burger"){
+			this.maxIngredients = 6;
+		}
 		
 		if (ingredientsCounter < this.maxIngredients ){
 			
 			
 			ingredients.add(ingredient); // add ingredient
-			System.out.println("Add \"" + this.ingredients.get(this.ingredients.indexOf(ingredient)).getName() + "\" to " + this.getClass().getSimpleName());
+			System.out.println("Add \"" + this.ingredients.get(this.ingredients.indexOf(ingredient)).getName() + "\" to " + this.name);
 			ingredientsCounter++;
 			
 			// Get ingredient price
@@ -45,11 +48,12 @@ public class Hamburger {
 
 		}
 		else{
-			System.out.println("Can not add more than " + this.maxIngredients + " ingredients to " + this.getClass().getSimpleName());
+			System.out.println("Can not add more than " + this.maxIngredients + " ingredients to " + this.name);
 		}
 
 				
 	}
+
 
 	// Display order summary
 	public void displaySummary(){
@@ -57,7 +61,7 @@ public class Hamburger {
 		System.out.println("\n*************************************************");
 		System.out.println("****************** YOUR ORDER *******************");
 		
-		System.out.println(this.getClass().getSimpleName() +": $" + this.price);
+		System.out.println(this.name+": $" + this.price);
 		System.out.println("- Roll Type: " + this.rollType);
 		System.out.println("- Meat Type: " + meatType);
 		
@@ -109,6 +113,11 @@ public class Hamburger {
 
 	public double getPriceOfIngredients() {
 		return priceOfIngredients;
+	}
+
+
+	protected void setMaxIngredients(int maxIngredients) {
+		this.maxIngredients = maxIngredients;
 	}
 	
 	

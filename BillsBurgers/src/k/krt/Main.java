@@ -8,14 +8,17 @@ public class Main {
 		Ingredients cheese = new Ingredients("Cheese");
 		Ingredients fries = new Ingredients("Fries");
 				
-		Hamburger firstHamburger = new Hamburger("White bread", "Chicken",20.00);
-		HealthyBurger healthyBurger = new HealthyBurger("Beef",25.00);
+		Hamburger simpleHamburger = new Hamburger("Simple Burger","White bread", "Chicken",20.00);
+		Healthy healthyBurger = new Healthy("Beef",25.00);
 		
-		firstHamburger.addIngredient(tomatoes);
-		firstHamburger.addIngredient(cheese);
-		firstHamburger.addIngredient(tomatoes);
-		firstHamburger.addIngredient(fries);
-		firstHamburger.addIngredient(tomatoes);
+				
+		simpleHamburger.addIngredient(tomatoes);
+		simpleHamburger.addIngredient(tomatoes);
+		simpleHamburger.addIngredient(tomatoes);
+		simpleHamburger.addIngredient(tomatoes);
+		simpleHamburger.addIngredient(tomatoes);
+		simpleHamburger.addIngredient(tomatoes);
+		simpleHamburger.addIngredient(tomatoes);
 		
 		healthyBurger.addIngredient(tomatoes);
 		healthyBurger.addIngredient(cheese);
@@ -27,7 +30,9 @@ public class Main {
 		healthyBurger.addIngredient(fries);
 		
 		
-		firstHamburger.displaySummary();
+		
+		
+		simpleHamburger.displaySummary();
 		healthyBurger.displaySummary();
 		
 		
