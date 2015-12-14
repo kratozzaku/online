@@ -11,6 +11,8 @@ public class Main {
 		Hamburger simpleHamburger = new Hamburger("Simple Burger","White bread", "Chicken",20.00);
 		Healthy healthyBurger = new Healthy("Beef",25.00);
 		
+		
+		
 				
 		simpleHamburger.addIngredient(tomatoes);
 		simpleHamburger.addIngredient(tomatoes);
