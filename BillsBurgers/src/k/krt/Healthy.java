@@ -5,8 +5,8 @@ public class Healthy extends Hamburger {
 	private int maxHealthyIngredients = 6;
 
 
-	public Healthy( String meat, double price) {
-		super("Healthy Burger","Brown rye", meat, price);
+	public Healthy( String meat) {
+		super("Healthy Burger","Brown rye", meat, 25.00);
 	}
 
 

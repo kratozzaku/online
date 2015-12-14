@@ -35,6 +35,8 @@ public class Hamburger {
 			this.maxIngredients = 6;
 		}
 		
+		// if this.name == ""; TODO add if conditional
+		
 		if (ingredientsCounter < this.maxIngredients ){
 			
 			

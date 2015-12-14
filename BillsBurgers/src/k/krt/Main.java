@@ -9,7 +9,7 @@ public class Main {
 		Ingredients fries = new Ingredients("Fries");
 				
 		Hamburger simpleHamburger = new Hamburger("Simple Burger","White bread", "Chicken",20.00);
-		Healthy healthyBurger = new Healthy("Beef",25.00);
+		Healthy healthyBurger = new Healthy("Beef");
 		
 		
 		
