@@ -21,6 +21,16 @@ public class Ingredients {
 			this.name = "Cheese";
 			this.price = 1.50;
 			break;
+			
+		case "chips":
+			this.name = "Chips";
+			this.price = 2.50;
+			break;
+			
+		case "drink":
+			this.name = "Drink";
+			this.price = 3.50;
+			break;	
 
 		default:
 			this.name = "Other - " + name;
