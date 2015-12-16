@@ -40,13 +40,8 @@ public class Main {
 	
 	
 	public static int[] sortIntegers(int[] array) {
-		int[] sortedArray = new int[array.length];
 		int temp = 0;
 				
-		for (int i = 0; i < array.length; i++) {
-			sortedArray[i] = array[i];
-		}
-		
 		for (int i = 0; i < array.length; i++) {
 			for (int j = 0; j < array.length; j++) {
 				if (array[i] > array[j]) {
@@ -61,32 +56,7 @@ public class Main {
 	}
 	
 	
-//	
-//	public static int[] sortIntegers(int[] array) {
-//		int[] sortedArray = new int[array.length];
-//		int max = array[0];
-//		
-//		
-//		for (int i = 0; i < array.length; i++) {
-//			for (int j = 0; j < array.length; j++) {
-//								
-//				if (array[i] > max && array[i] > array[j] ){
-//					max = array[i];
-//					sortedArray[i] = array[i];
-//				}else {
-//					max = array[j];
-//					sortedArray[i] = array[j];
-//				}
-//
-//				//System.out.println("max: " + max);
-//				
-//			}
-//		}
-//	
-//	
-//		return sortedArray;
-//	}
-//	
+
 	
 
 }
