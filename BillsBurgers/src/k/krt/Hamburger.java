@@ -67,7 +67,7 @@ public class Hamburger {
 				
 	}
 	
-	
+	// Adds combo to specific Burger
 	public void addCombo(){
 		
 		if (this.name == "Deluxe Burger"){
