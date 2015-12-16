@@ -18,6 +18,7 @@ public class Hamburger {
 	private int maxIngredients = 4;
 	private int ingredientsCounter = 0;
 	private double priceOfIngredients = 0;
+	
 		
 
 	public Hamburger(String name, String rollType, String meat, double price) {
@@ -25,6 +26,13 @@ public class Hamburger {
 		this.rollType = rollType;
 		this.meatType = meat;
 		this.price = price;
+	}
+	
+	public Hamburger(String name, String rollType, String meat) {
+		this.name = name;
+		this.rollType = rollType;
+		this.meatType = meat;
+		this.price = 20.00;
 	}
 	
 	
@@ -35,8 +43,10 @@ public class Hamburger {
 			this.maxIngredients = 6;
 		}
 		
-		// if this.name == ""; TODO add if conditional
-		
+		if (this.name == "Deluxe Burger"){
+			this.maxIngredients = 0;
+		}		
+	
 		if (ingredientsCounter < this.maxIngredients ){
 			
 			
@@ -45,7 +55,8 @@ public class Hamburger {
 			ingredientsCounter++;
 			
 			// Get ingredient price
-			this.priceOfIngredients += this.ingredients.get(this.ingredients.indexOf(ingredient)).getPrice();
+			calculateTotals(ingredient);
+			
 			
 
 		}
@@ -55,6 +66,31 @@ public class Hamburger {
 
 				
 	}
+	
+	
+	public void addCombo(){
+		
+		if (this.name == "Deluxe Burger"){
+			this.maxIngredients = 0;
+			if (this.ingredientsCounter == 0){
+				Ingredients chips = new Ingredients("Chips");
+				Ingredients drink = new Ingredients("Drink");
+				ingredients.add(chips);
+				ingredients.add(drink);
+				calculateTotals(chips);
+				calculateTotals(drink);
+				this.ingredientsCounter = 1;
+			}
+			
+		}	
+		
+	}
+	
+	public void calculateTotals(Ingredients ingredient){
+		this.priceOfIngredients += this.ingredients.get(this.ingredients.indexOf(ingredient)).getPrice();
+	}
+	
+	
 
 
 	// Display order summary

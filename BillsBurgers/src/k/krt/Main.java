@@ -7,9 +7,12 @@ public class Main {
 		Ingredients tomatoes = new Ingredients("Tomatoes");
 		Ingredients cheese = new Ingredients("Cheese");
 		Ingredients fries = new Ingredients("Fries");
+		Ingredients chips = new Ingredients("Chips");
+		Ingredients drink = new Ingredients("Drink");
 				
-		Hamburger simpleHamburger = new Hamburger("Simple Burger","White bread", "Chicken",20.00);
+		Hamburger simpleHamburger = new Hamburger("Simple Burger","White bread", "Chicken");
 		Healthy healthyBurger = new Healthy("Beef");
+		Deluxe deluxe = new Deluxe("Rice roll", "Turkey");
 		
 		
 		
@@ -31,12 +34,12 @@ public class Main {
 		healthyBurger.addIngredient(fries);
 		healthyBurger.addIngredient(fries);
 		
-		
+		deluxe.addIngredient(drink);
 		
 		
 		simpleHamburger.displaySummary();
 		healthyBurger.displaySummary();
-		
+		deluxe.displaySummary();
 		
 
 	}

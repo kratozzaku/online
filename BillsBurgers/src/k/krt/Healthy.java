@@ -14,12 +14,6 @@ public class Healthy extends Hamburger {
 		return maxHealthyIngredients;
 	}
 	
-//	@Override
-//	public void addIngredient (Ingredients ingredient){
-//		
-//
-//				
-//	}
 
 	
 	

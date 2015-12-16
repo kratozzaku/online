@@ -31,7 +31,7 @@ public class Ingredients {
 			this.name = "Drink";
 			this.price = 3.50;
 			break;	
-
+	
 		default:
 			this.name = "Other - " + name;
 			this.price = 1.00;
