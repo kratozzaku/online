@@ -11,17 +11,12 @@ public class Main {
 	public static void main(String[] args) {
 		
 
-		int[] myArray = {9,7,15};
+		int[] myArray = getIntegers(7);
 		
-		//printArray(myArray);
+	
 		printArray(sortIntegers(myArray));
 
-		
-		int[] myIntArray = new int[10];
-		
-		myIntArray[0] = 10;
-		myIntArray[1] = 10;
-		myIntArray[5] = 50;
+
 			
 
 	}
