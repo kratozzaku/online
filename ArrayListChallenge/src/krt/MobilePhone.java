@@ -17,12 +17,14 @@ public class MobilePhone {
 	public void addContact(String name, String phoneNo){
 		
 		// TODO Check if contact is already in the list
-	
-		Contact contact = new Contact(name, phoneNo);
-		
+		if (!onFile(name)) {
+			Contact contact = new Contact(name, phoneNo);
 			phoneBook.add(contact);
 			System.out.println("Added contact: " + name +" - " + phoneNo);	
-
+		}else {
+			System.out.println("Contact with this name already exists.");
+			System.out.println("Contact not added - try again.");
+		}
 	}
 	
 	public void modifyContact(String name, String phoneNo) {
@@ -34,14 +36,32 @@ public class MobilePhone {
 	}
 	
 	public void removeContact(String name) {
-		
+		int contactIndex = findContactIndex(name);
+		if (onFile(name)) {
+			removeContact(contactIndex);
+			System.out.println("Contact :" + phoneBook.get(contactIndex).name +" - "+ phoneBook.get(contactIndex).phoneNumber + " removed.");
+		} else {
+			System.out.println("Contact not found.");
+		}
 	}
 	
 	public void searchContact(String name) {
-		findItem(name);
+		if (onFile(name)) {
+			int contactIndex = findContactIndex(name);
+			System.out.println("Search result:");
+			System.out.println(phoneBook.get(contactIndex).name + " - " + phoneBook.get(contactIndex).phoneNumber);
+		} else {
+			System.out.println("Could not find contact: " + name);
+		}
+	}
+
+	//// Private methods ////
+	
+	private void removeContact(int itemIndex){
+		phoneBook.remove(itemIndex);
 	}
 	
-	private int findItem (String name) {
+	private int findContactIndex (String name) {
 		int result = -1;
 		for (int i = 0; i < phoneBook.size(); i++) {
 			if (phoneBook.get(i).name.equals(name)) {
@@ -53,7 +73,7 @@ public class MobilePhone {
 	}
 	
 	private boolean onFile(String name){
-		if (findItem(name) >=0 ) {
+		if (findContactIndex(name) >=0 ) {
 			return true;
 		}
 	return false;

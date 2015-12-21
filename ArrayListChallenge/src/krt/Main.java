@@ -34,11 +34,15 @@ public class Main {
 					break;
 				case 4:
 					searchContact();
+				case 5:
+					removeContact();
 				default:
 					break;
 			}
 		}	
 	}
+
+
 
 	public static void displayMenu() {
 		System.out.println("****** Menu ******");
@@ -47,6 +51,7 @@ public class Main {
 		System.out.println("\t 2. Add new contact.");
 		System.out.println("\t 3. Modify existing contact.");
 		System.out.println("\t 4. Search list for a contact.");
+		System.out.println("\t 5. Remove contact.");
 	}
 	
 	public static void addContact() {
@@ -60,6 +65,8 @@ public class Main {
 	public static void modifyContact() {
 		System.out.println("Enter name to modify: ");
 		String name = scanner.nextLine();
+		System.out.println("Enter new name:");
+		String newName = scanner.nextLine();
 		System.out.println("Enter phone number: ");
 		String phoneNo = scanner.nextLine();
 		phone.modifyContact(name, phoneNo);
@@ -70,6 +77,11 @@ public class Main {
 		System.out.println("Enter name to search: ");
 		String name = scanner.next();
 		phone.searchContact(name);
+	}
+	
+	private static void removeContact() {
+		
+		
 	}
 
 }
