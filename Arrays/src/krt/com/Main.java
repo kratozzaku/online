@@ -1,15 +1,25 @@
 package krt.com;
 
+<<<<<<< HEAD
 
 import java.util.Scanner;
 
+=======
+import java.util.Scanner;
+>>>>>>> branch 'master' of https://github.com/kratozzaku/online
 
 public class Main {
 	
+<<<<<<< HEAD
 	private static Scanner myScanner = new Scanner(System.in);
+=======
+	private static Scanner scanner = new Scanner(System.in);
+	int sc = scanner.nextInt();
+>>>>>>> branch 'master' of https://github.com/kratozzaku/online
 
 	public static void main(String[] args) {
 		
+<<<<<<< HEAD
 
 		int[] myArray = getIntegers(7);
 		
@@ -18,9 +28,21 @@ public class Main {
 
 
 			
+=======
+		
+		int[] myArray = {2,9,15,7,1,50,-5};
+		
+		printArray(myArray);
+		
+		
+		
+		
+		
+>>>>>>> branch 'master' of https://github.com/kratozzaku/online
 
 	}
 	
+<<<<<<< HEAD
 	public static int[] getIntegers(int numbers){
 		int[] array = new int[numbers];
 		
@@ -60,5 +82,13 @@ public class Main {
 	
 
 	
+=======
+	
+	public static void printArray(int[] array) {
+		for (int i = 0; i < array.length; i++) {
+			System.out.println("");
+		}
+	}
+>>>>>>> branch 'master' of https://github.com/kratozzaku/online
 
 }
