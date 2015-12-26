@@ -10,6 +10,8 @@ public class Bank {
 	public Bank(String name) {
 		super();
 		this.name = name;
+		
+		
 	}
 	
 	// TODO Add new branch
