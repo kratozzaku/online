@@ -2,6 +2,7 @@ package krt.com;
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 import java.util.Scanner;
 
@@ -11,9 +12,13 @@ import java.util.Scanner;
 =======
 import java.util.Scanner;
 >>>>>>> refs/remotes/origin/master
+=======
+import java.util.Scanner;
+>>>>>>> branch 'master' of https://github.com/kratozzaku/online
 
 public class Main {
 	
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 	private static Scanner myScanner = new Scanner(System.in);
@@ -25,9 +30,14 @@ public class Main {
 	private static Scanner scanner = new Scanner(System.in);
 	int sc = scanner.nextInt();
 >>>>>>> refs/remotes/origin/master
+=======
+	private static Scanner scanner = new Scanner(System.in);
+	int sc = scanner.nextInt();
+>>>>>>> branch 'master' of https://github.com/kratozzaku/online
 
 	public static void main(String[] args) {
 		
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 
@@ -60,9 +70,21 @@ public class Main {
 		
 		
 >>>>>>> refs/remotes/origin/master
+=======
+		
+		int[] myArray = {2,9,15,7,1,50,-5};
+		
+		printArray(myArray);
+		
+		
+		
+		
+		
+>>>>>>> branch 'master' of https://github.com/kratozzaku/online
 
 	}
 	
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 	public static int[] getIntegers(int numbers){
@@ -120,5 +142,13 @@ public class Main {
 		}
 	}
 >>>>>>> refs/remotes/origin/master
+=======
+	
+	public static void printArray(int[] array) {
+		for (int i = 0; i < array.length; i++) {
+			System.out.println("");
+		}
+	}
+>>>>>>> branch 'master' of https://github.com/kratozzaku/online
 
 }
