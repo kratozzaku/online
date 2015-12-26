@@ -34,15 +34,9 @@ public class Main {
 					break;
 				case 4:
 					searchContact();
-					break;
 				case 5:
 					removeContact();
-					break;
-				case 6:
-					quit = true;
-					break;
 				default:
-					displayMenu();
 					break;
 			}
 		}	
@@ -50,7 +44,7 @@ public class Main {
 
 
 
-	private static void displayMenu() {
+	public static void displayMenu() {
 		System.out.println("****** Menu ******");
 		System.out.println("\t 0. Display menu.");
 		System.out.println("\t 1. Show phonebook items.");
@@ -58,10 +52,9 @@ public class Main {
 		System.out.println("\t 3. Modify existing contact.");
 		System.out.println("\t 4. Search list for a contact.");
 		System.out.println("\t 5. Remove contact.");
-		System.out.println("\t 6. Quit.");
 	}
 	
-	private static void addContact() {
+	public static void addContact() {
 		System.out.println("Enter name: ");
 		String name = scanner.nextLine();
 		System.out.println("Enter phone number: ");
@@ -69,29 +62,26 @@ public class Main {
 		phone.addContact(name, phoneNo);
 	}
 	
-	private static void modifyContact() {
+	public static void modifyContact() {
 		System.out.println("Enter name to modify: ");
 		String name = scanner.nextLine();
 		System.out.println("Enter new name:");
 		String newName = scanner.nextLine();
-		System.out.println("Enter new phone number: ");
+		System.out.println("Enter phone number: ");
 		String phoneNo = scanner.nextLine();
-		phone.modifyContact(name, newName, phoneNo);
+		phone.modifyContact(name, phoneNo);
 		
 	}
 	
 	private static void searchContact() {
 		System.out.println("Enter name to search: ");
-		String name = scanner.nextLine();
+		String name = scanner.next();
 		phone.searchContact(name);
 	}
 	
 	private static void removeContact() {
-		System.out.println("Enter name to delete: ");
-		String name = scanner.nextLine();
-		phone.removeContact(name);
+		
+		
 	}
-	
-
 
 }

@@ -45,7 +45,6 @@ public class GroceryList {
 	
 	private void removeGroceryItem(int position){
 		String theItem = groceryList.get(position);
-		System.out.println("Item " + theItem + " removed.");
 		groceryList.remove(position);
 	}
 	

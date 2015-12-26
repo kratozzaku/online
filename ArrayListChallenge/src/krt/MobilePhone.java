@@ -16,6 +16,7 @@ public class MobilePhone {
 
 	public void addContact(String name, String phoneNo){
 		
+		// TODO Check if contact is already in the list
 		if (!onFile(name)) {
 			Contact contact = new Contact(name, phoneNo);
 			phoneBook.add(contact);
@@ -26,28 +27,19 @@ public class MobilePhone {
 		}
 	}
 	
-	public void modifyContact(String name, String newName, String phoneNo) {
+	public void modifyContact(String name, String phoneNo) {
+				
+	}
+	
+	private void modifyContact(int index, String name, String phoneNo ){
+		
+	}
+	
+	public void removeContact(String name) {
 		int contactIndex = findContactIndex(name);
 		if (onFile(name)) {
-			if (!onFile(newName)) {
-				Contact newContact = new Contact(newName, phoneNo);
-				modifyContact(contactIndex, newContact);
-				System.out.println("Contact modified.");
-			}
-			else{
-				System.out.println("Contact with same name already exists.");
-			}
-		} else {
-			System.out.println("Could not find contact: " + name);
-		}
-	} 
-
-	public void removeContact(String name) {
-		if (onFile(name)) {
-			int contactIndex = findContactIndex(name);
-			System.out.println("Contact :" + phoneBook.get(contactIndex).name +" - "+ phoneBook.get(contactIndex).phoneNumber + " removed.");
 			removeContact(contactIndex);
-			
+			System.out.println("Contact :" + phoneBook.get(contactIndex).name +" - "+ phoneBook.get(contactIndex).phoneNumber + " removed.");
 		} else {
 			System.out.println("Contact not found.");
 		}
@@ -64,11 +56,6 @@ public class MobilePhone {
 	}
 
 	//// Private methods ////
-	
-	private void modifyContact(int index, Contact contact ){
-		phoneBook.set(index, contact);
-	}
-	
 	
 	private void removeContact(int itemIndex){
 		phoneBook.remove(itemIndex);
