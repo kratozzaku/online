@@ -47,7 +47,7 @@ public class Main {
 		}
 		
 	}
-	
+		
 	public static void deleteBranch() {
 		System.out.println("Enter branch to delete: ");
 		String branchName = scanner.nextLine();
@@ -86,7 +86,11 @@ public class Main {
 		
 		bank.displayCustomersPerBranch(branchName);
 	}
-
+	
+	public static void displayCustomersWithBranch(){
+		bank.displayCustomersWithBranch();
+	}
+	
 
 	public static void searchCustomer(){
 		System.out.println("Enter customer branch: ");
@@ -98,6 +102,31 @@ public class Main {
 		}
 		else {
 			System.out.println("Customer not found.");
+		}
+	}
+	
+	public static void displayCustomerTransactions() {
+		System.out.println("Enter customer branch: ");
+		String branchName = scanner.nextLine();
+		System.out.println("Enter customer name: ");
+		String name = scanner.nextLine();
+		if(!bank.displayCustomerTransactions(branchName, name)){
+			System.out.println("Error.");
+		}
+	}
+	
+	public static void addCustomerTransaction(){
+		System.out.println("Enter customer branch: ");
+		String branchName = scanner.nextLine();
+		System.out.println("Enter new customer name: ");
+		String name = scanner.nextLine();
+		System.out.println("Enter transaction: ");
+		Double transaction = scannerDouble.nextDouble();
+		if (bank.addCustomerTransaction(branchName, name, transaction)) {
+			System.out.println("Transaction added");
+		}
+		else{
+			System.out.println("Adding transaction failed. Check if Branch and Customer exist.");
 		}
 	}
 	

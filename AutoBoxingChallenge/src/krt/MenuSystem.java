@@ -51,12 +51,14 @@ public class MenuSystem {
 						case 4:
 							Main.searchBranch();
 							break;
-						case 6:
+						case 5:
 							Main.deleteBranch();
 							break;
-						case 7:
+						case 6:
 							displayMainMenu();
 							exitBranches = true;
+							break;
+						default:
 							break;
 					}
 				}
@@ -80,15 +82,26 @@ public class MenuSystem {
 						case 1:
 							Main.displayCustomersPerBranch();
 							break;
+						case 2:
+							Main.displayCustomersWithBranch();
+							break;
 						case 3:
-							Main.addCustomer();
+							Main.displayCustomerTransactions();
 							break;
 						case 4:
-							Main.searchCustomer();
+							Main.addCustomer();
+							break;
+						case 5:
+							Main.addCustomerTransaction();
 							break;
 						case 6:
+							Main.searchCustomer();
+							break;
+						case 7:
 							exitCustomers = true;
 							displayMainMenu();
+							break;
+						default:
 							break;
 	
 					}
@@ -122,28 +135,31 @@ public class MenuSystem {
 	}
 	
 	private static void displayBranchesMenu() {
-		System.out.println("\t-- Branches");
-		System.out.println("\t\t 0 - Display Menu");
-		System.out.println("\t\t 1 - List of branches.");
-		System.out.println("\t\t 2 - List of customers per branch.");
-		System.out.println("\t\t 3 - Add new branch.");
-		System.out.println("\t\t 4 - Search branch name.");
-		System.out.println("\t\t xx - Modify branch name.");
-		System.out.println("\t\t 6 - Delete existing empty branch.");
-		System.out.println("\t\t 7 - to main Menu.");
+		System.out.println("\t-- Branches\n"+
+							"\t\t 0 - Display Menu\n"+
+							"\t\t 1 - List of branches.\n"+
+							"\t\t 2 - List of customers per branch.\n"+
+							"\t\t 3 - Add new branch.\n"+
+							"\t\t 4 - Search branch name.\n"+
+							"\t\t 5 - Delete existing empty branch.\n"+
+							"\t\t 6 - to main Menu.");
 	}
 	
 	private static void displayCustomersMenu() {
-		System.out.println("\t-- Branches");
-		System.out.println("\t\t 0 - Display Menu");
-		System.out.println("\t\t 1 - List of customers per branch.");
-		System.out.println("\t\t xx - List transactions of customer.");
-		System.out.println("\t\t 3 - Add new customer.");
-		System.out.println("\t\t 4 - Search customer per branch.");
-		System.out.println("\t\t xx - Add new transaction to customer.");
-		System.out.println("\t\t xx - Delete existing customer.");
-		System.out.println("\t\t 6 - to main Menu.");
+		System.out.println("\t-- Branches\n"+
+							"\t\t 0 - Display Menu\n"+
+							"\t\t 1 - List of customers per branch.\n"+
+							"\t\t 2 - List of all customers.\n"+
+							"\t\t 3 - List transactions of customer.\n"+
+							"\t\t 4 - Add new customer.\n"+
+							"\t\t 5 - Add new transaction to customer.\n"+
+							"\t\t 6 - Search customer per branch.\n"+
+							"\t\t xx - Delete existing customer.\n"+
+							"\t\t 7 - to main Menu.\n");
 	}
+	
+		
+	
 	
 }
 

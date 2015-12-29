@@ -7,7 +7,7 @@ public class Customer{
 	
 	private String name;
 	private ArrayList<Double> transactions = new ArrayList<Double>();
-	private static String noBranch = "No Branch";
+	
 	
 	public Customer(String name) {
 		this.name = name;
@@ -27,7 +27,13 @@ public class Customer{
 		return transactions;
 	}
 	
-	
+//	public boolean addTransaction(double transaction){
+//		if(transactions.add(transaction)){
+//			return true;
+//		}
+//	return false;
+//	}
+//	
 	
 	
 	
