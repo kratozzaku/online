@@ -20,6 +20,7 @@ public class Song {
 
 	public double getDuration () {
 		return duration;
+
 	}
 	
 	
