@@ -29,6 +29,7 @@ public class Main {
 	 	musicCollection.addSong("Harder, Better, Faster, Stronger", 2.40d, "Daft Punk");
 	 	musicCollection.addSong("Something About Us", 1.55d, "Daft Punk");
 	 	musicCollection.addSong("Veridis Quo", 6.55d, "Daft Punk");
+	 	musicCollection.addSong("Veridis Quo", 6.55d, "Daft Punk");
 	 	
 	 	musicCollection.displayAlbumsAndSongs();
 		
