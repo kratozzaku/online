@@ -24,7 +24,7 @@ public class Album {
 
 	// Add song to album list
 	public boolean addSong(String title, double duration) {
-		Song existingSong = findSong(title, duration);
+		Song existingSong = findSong(title);
 		
 		if (existingSong == null) {
 			Song newSong = new Song(title, duration);
@@ -36,7 +36,7 @@ public class Album {
 	}
 
 	// find and return song object
-	private Song findSong(String title, double duration) {
+	private Song findSong(String title) {
 		
 		for (int i = 0; i < this.songs.size(); i++) {
 			Song checkedSong = this.songs.get(i);
@@ -47,6 +47,12 @@ public class Album {
 		return null;
 	}
 	
+	public boolean songExists (String songTitle) {
+		if (findSong(songTitle) != null) {
+			return true;
+		}
+		return false;
+	}
 
 	
 	
