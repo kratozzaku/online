@@ -1,11 +1,13 @@
 package krt;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class MusicCollection {
 	
 	private String name;
 	private ArrayList<Album> albums ;
+	private LinkedList<Song> playlist;
 	
 	public MusicCollection(String name) {
 		super();
@@ -72,6 +74,22 @@ public class MusicCollection {
 			
 		}
 	}
+	
+	
+	// TODO add reference to 
+	public boolean addSongToPlaylist (String songTitle, String albumTitle ) {
+		Album foundAlbum = this.findAlbum(albumTitle);
+		if (foundAlbum != null) {
+			if (foundAlbum.songExists(songTitle)) {
+				return true;
+			}
+		}
+		
+		return false;
+		
+	}
+	
+	
 	
 	
 
