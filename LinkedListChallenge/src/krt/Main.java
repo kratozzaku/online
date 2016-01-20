@@ -32,6 +32,16 @@ public class Main {
 	 	musicCollection.addSong("Veridis Quo", 6.55d, "Daft Punk");
 	 	
 	 	musicCollection.displayAlbumsAndSongs();
+	 	
+	 	musicCollection.addSongToPlaylist("Digital Love", "Daft Punk");
+	 	musicCollection.addSongToPlaylist("Lenny and Lenny", "Lenny's Best");
+	 	musicCollection.addSongToPlaylist("Santa's naughty helpers", "1995 Christmas Special");
+	 	musicCollection.addSongToPlaylist("Something About Us", "Daft Punk");
+	 	musicCollection.addSongToPlaylist("Aerodynamic", "Daft Punk");
+	 	musicCollection.addSongToPlaylist("The Hit", "Lenny's Best");
+	 	
+	 	//musicCollection.displayPlaylist();;
+	 	musicCollection.play();
 		
 
 	}
