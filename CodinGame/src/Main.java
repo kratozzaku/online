@@ -11,16 +11,21 @@ class Main {
 
     public static void main(String args[]) {
     	
-      	Runway runway = new Runway(16, 2, 16);
+      	Runway runway = new Runway (20, 2, 5);
     	Car car = new Car();
     	
     	
     	int minSpeed = runway.gap+1;
     	int totalRunway = runway.road + runway.gap + runway.platform;
     	boolean hasJumped = false;
+    	int turnsToWait = waitingTurns(runway.road, minSpeed, positionOnMinSpeed(minSpeed));
+    	int wasDelayed = 0;
+    	car.speed =1;
     	
     	System.out.println("Turns to min Speed: " + turnsToMinSpeed(minSpeed));
     	System.out.println("Position on minSpeedReach: " + positionOnMinSpeed(minSpeed));
+    	
+    	
     	
     	// don't use division - as speed is increasing. try seeing the diffif ()
     	
@@ -32,36 +37,67 @@ class Main {
     		// check when to jump
 
     		if (!hasJumped){
-    			
-    			if (car.position < runway.road) { // Fail condition 
-      			
-		    		if (car.speed < minSpeed){
-		    			car.speedUp();
-			    		} else if (car.speed == minSpeed) {
-			    			
-			    			if (car.position != runway.road ) {
-								car.hold();
-								System.out.println("Car position1:" + (car.position + car.speed));
-								
-							}else if(car.position == runway.road) {
-								car.jump();
-								hasJumped = true;
-								System.out.println("Car position on jump:" + (car.position + car.speed));
-							}
-						} else if (car.speed > minSpeed) {
-			    			car.slowDown();
-						}
-    			} else {
-    				System.out.println("You Failed !");
-    				break;
+    			if (waiting(runway.road, minSpeed, positionOnMinSpeed(minSpeed)) && (wasDelayed != turnsToWait) && (car.speed == 1)) {
+    				car.hold();
+    				wasDelayed++;
+    				System.out.println("WAS DELAYED");
+    			}else {
+        			if (car.position == car.position) { // Fail condition car.position < runway.road
+              			
+    		    		if (car.speed < minSpeed){
+    		    			car.speedUp();
+    			    		} else if (car.speed == minSpeed) {
+    			    			
+    			    			if (car.position != runway.road ) {
+    								car.hold();
+    								System.out.println("Car position1:" + (car.position ));
+    								
+    							}else if(car.position == runway.road) {
+    								car.jump();
+    								hasJumped = true;
+    								System.out.println("Car position on jump:" + (car.position));
+    							}
+    						} else if (car.speed > minSpeed) {
+    			    			car.slowDown();
+    						}
+        			} else {
+        				System.out.println("You Failed !");
+        				
+        				break;
+        			}
+
     			}
-    			
+
     		} else {
     			car.slowDown();
     		}
+    		System.out.println("V2 " + car.speed);
     	}
 
     }	 
+    
+    
+    public static boolean waiting(int road, int minSpeed, int turnsToMinsSpeed) {
+    	
+    	System.out.println("road: " + road + " - Pos on Minspeed " + turnsToMinsSpeed + " = " + (road-turnsToMinsSpeed) );
+    	System.out.println("Division = " + ((road-turnsToMinsSpeed) % minSpeed) );
+		
+    	if (((road-turnsToMinsSpeed) % minSpeed) <= 0) {
+    		return false;
+    	}
+    	
+    	return true;
+	}
+    
+    public static int waitingTurns(int road, int minSpeed, int turnsToMinsSpeed) {
+    			
+    	if (((road-turnsToMinsSpeed) % minSpeed) <= 0) {
+    		return 0;
+    	}
+    	
+    	return ((road-turnsToMinsSpeed) % minSpeed);
+	}
+    
     
     public static int turnsToMinSpeed(int minSpeed) {
 		int tempSpeed = 0;
@@ -71,6 +107,7 @@ class Main {
 			tempSpeed++;
 			counter++;
 		}
+		System.out.println("Turns to MinSpeed: " + counter);
     	return counter;
 	}
     
@@ -78,9 +115,11 @@ class Main {
 		int tempPos = 0;
 		int speed = 0;
 		
+		
 		while (speed != minSpeed) {
 			speed++;
 			tempPos = tempPos+speed;
+			
 		}
     	return tempPos;
     }
@@ -117,21 +156,23 @@ class Main {
 	    
 	    public void speedUp() {
 	    	this.speed = this.speed+1;
+	    	System.out.println("SPEED");
 	    	
 	    }
 	    
 	    public void slowDown() {
 	    	this.speed = this.speed - 1;
+	    	System.out.println("SLOW");
 	    	
 	    }
 	    
 	    public void jump() {
-	       	System.out.println("Jumping");
+	       	System.out.println("JUMP");
 	       
 	    }
 	    
 	    public void hold() {
-	       	System.out.println("Hold Speed");
+	       	System.out.println("WAIT");
 	       	
 	    }
 	    
